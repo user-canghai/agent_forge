@@ -1,0 +1,16 @@
+[project]
+name = "agent-forge"
+version = "0.1.0"
+description = "基于 LangGraph 与 LangChain 的可扩展智能体实验平台"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=1.2.15",
+    "langchain>=1.4.6",
+    "langchain-openai>=1.7.2",
+    "pydantic>=2.14.1",
+    "python-dotenv>=1.2.4",
+]
+
+[tool.uv]
+package = false
