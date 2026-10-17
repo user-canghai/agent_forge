@@ -39,7 +39,6 @@ sequenceDiagram
     participant G as LangGraph
     participant L as 大模型
     participant S as security.py
-    participant T as tools.py
 
     U->>M: 输入任务
     M->>M: 加载 rules / skills / 记忆，拼系统提示词
@@ -48,8 +47,8 @@ sequenceDiagram
     L-->>G: 决定调用工具（名称 + 参数）
     G->>S: 执行前检查
     S->>S: 黑名单拦截 + 人工确认
-    S->>T: 执行工具
-    T-->>G: 工具结果
+    S->>S: 执行工具（execute_tool_with_hooks）
+    S-->>G: 工具结果
     G->>L: 结果回灌，继续思考
     L-->>G: 不再调用工具，给出最终答案
     G-->>M: 最终结果
